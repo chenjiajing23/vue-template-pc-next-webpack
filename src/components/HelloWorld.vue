@@ -5,18 +5,28 @@
     <p>{{ plusOne }}</p>
     <p>{{ plusName }}</p>
     <div>{{ data.foo }}</div>
-    <a-button @click="onClick">good</a-button>
+    <a-button @click="onClick">good方法</a-button>
   </div>
 </template>
 
 <script lang="ts">
-import { ref, reactive, watchEffect, computed } from 'vue';
+import {
+  ref,
+  reactive,
+  watchEffect,
+  computed,
+  defineComponent,
+  onMounted,
+  onUpdated,
+  onUnmounted
+} from 'vue';
 
-export default {
+export default defineComponent({
+  name: 'Home',
   props: {
     msg: String
   },
-  setup(props: any, context: any) {
+  setup(props, context) {
     watchEffect(() => {
       console.log(`name is: ` + props.msg);
     });
@@ -31,8 +41,17 @@ export default {
       foo: 'vue  composition api'
     });
     function onClick() {
-      context.emit('godd', '陈家敬');
+      context.emit('good', '陈家敬');
     }
+    onMounted(() => {
+      console.log('mounted!');
+    });
+    onUpdated(() => {
+      console.log('updated!');
+    });
+    onUnmounted(() => {
+      console.log('unmounted!');
+    });
 
     // 暴露给模板
     return {
@@ -43,7 +62,7 @@ export default {
       onClick
     };
   }
-};
+});
 </script>
 
 <style lang="less" scoped>

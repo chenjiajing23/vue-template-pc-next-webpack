@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="@/assets/logo.png" />
-    <HelloWorld :msg="'测试vuex'"></HelloWorld>
+    <HelloWorld :msg="'测试vuex'" @good="onGood"></HelloWorld>
     <div>
       <a-button type="primary" @click="add">+</a-button>
       &nbsp;&nbsp;&nbsp;&nbsp;
@@ -65,6 +65,9 @@ export default {
       this.decrementAsync(1000).then(res => {
         console.log('异步减少后的值为：', res);
       });
+    },
+    onGood(str) {
+      window.alert('我是你爸爸' + str);
     }
   }
 };

@@ -1,6 +1,6 @@
 module.exports = {
   'GET /api/user/1 2000': {
-    name: '陈家敬'
+    name: 'dffffff'
   },
 
   'POST /api/upload': {

@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="@/assets/logo.png" />
-    <HelloWorld :msg="'测试vuex'" @good="onGood"></HelloWorld>
     <div>
       <a-button type="primary" @click="add">+</a-button>
       &nbsp;&nbsp;&nbsp;&nbsp;
@@ -18,6 +17,7 @@
       <hr />
       <p>{{ countGetters }}</p>
     </div>
+    <HelloWorld :msg="'测试vuex'" @good="onGood"></HelloWorld>
   </div>
 </template>
 
@@ -40,6 +40,7 @@ export default {
     window.apis.getUserInfo({ params: { id: 333 } }).then(res => {
       console.log(res, '======');
     });
+    console.log(this.increment);
   },
   methods: {
     ...mapMutations({
